@@ -26,11 +26,12 @@ class Form extends Component {
         const { name, job } = this.state
 
         return (
-            <form handleSubmit={this.handleSubmit}>
+            <form handleSubmit={ this.handleSubmit }>
                 <label htmlFor="name">Name</label>
                 <input type="text" name="name" id="name" value={name} onChange={this.handleChange} />
                 <label htmlFor="job">Job</label>
                 <input type="text" name="job" id="job" value={job} onChange={this.handleChange} />
+                <br />
                 <input type="button" value="Submit" onClick={this.submitForm} />
             </form>
         )

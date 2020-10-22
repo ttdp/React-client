@@ -4,7 +4,16 @@ import Form from './Form'
 
 class App extends Component {
     state = {
-        characters: []
+        characters: [],
+        apiResponse: ""
+    }
+
+    callAPI() {
+        console.log("Here")
+        fetch("http://localhost:3001/testAPI")
+            .then(res => res.text())
+            .then(res => this.setState({ apiResponse: res }))
+            .catch(err => err)
     }
 
     handleSubmit = (character) => {
@@ -19,6 +28,10 @@ class App extends Component {
                 return i !== index
             })
         })
+    }
+
+    componentDidMount() {
+        this.callAPI()
     }
     
     render() {
